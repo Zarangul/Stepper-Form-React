@@ -80,3 +80,10 @@ label {
   color: #ececec;
   font-weight: bold;
 }
+.submit-data h1 {
+  margin: 20px;
+  color: #ececec;
+}
+.submit-data label {
+  margin: 10px;
+}

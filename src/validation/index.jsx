@@ -1,7 +1,7 @@
 import { object, string } from "yup";
 
 export const step1Val =object({
-    name: string().required().max(5)
+    name: string().required().min(5)
 })
 
 export const step2Val =object({

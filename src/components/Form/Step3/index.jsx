@@ -1,12 +1,12 @@
 import React from 'react';
 import { Field, Form, Formik } from "formik";
-import { useDispatch } from 'react-redux';
+import { useDispatch} from 'react-redux';
 
 import { step3Val } from "../../../validation";
 import { PrevButton } from "../../Buttons/PrevButton";
 import { NextButton } from "../../Buttons/NextButton";
 import { changeStep } from '../../../redux/stepSlice';
-
+import { setFormData } from "../../../redux/formDataSlice";
 
 export const Step3 = () => {
   const dispatch = useDispatch();
@@ -19,12 +19,13 @@ export const Step3 = () => {
       validationSchema={step3Val}
       initialValues={{ account: "" }}
       onSubmit={(val) => {
-        console.log("submit");
+        dispatch(setFormData(val));
+        dispatch(changeStep(4));
       }}
       >
         <Form className='form'>
           <label>Bank account</label>
-          <Field className='input' name='account'/>
+          <Field className='input' name='account' placeholder='type your bank account'/>
 
           <div className="buttons">
           <PrevButton onPrev={goToPrevStep}/>
