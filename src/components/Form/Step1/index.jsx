@@ -2,9 +2,9 @@ import React from "react";
 import { Formik, Form, Field } from "formik";
 import { useDispatch } from "react-redux";
 
-import { step1Val } from "../../validation";
-import { Buttons } from "../Buttons";
-import { changeStep } from "../../redux/stepSlice";
+import { step1Val } from "../../../validation";
+import { changeStep } from "../../../redux/stepSlice";
+import { NextButton } from "../../Buttons/NextButton";
 
 export const Step1 = () => {
   const dispatch = useDispatch();
@@ -20,7 +20,10 @@ export const Step1 = () => {
         <Form className="form">
           <label>Name</label>
           <Field className="input" name="name" />
-          <Buttons nextType="submit" />
+          
+          <div className="buttons">
+          <NextButton nextType="submit" />
+          </div>
         </Form>
       </Formik>
     </div>

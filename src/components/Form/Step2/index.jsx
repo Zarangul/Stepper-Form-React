@@ -2,12 +2,16 @@ import React from "react";
 import { Field, Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
 
-import { step2Val } from "../../validation";
-import { changeStep } from "../../redux/stepSlice";
-import { Buttons } from "../Buttons";
+import { step2Val } from "../../../validation";
+import { changeStep } from "../../../redux/stepSlice";
+import { PrevButton } from "../../Buttons/PrevButton";
+import { NextButton } from "../../Buttons/NextButton";
 
 export const Step2 = () => {
   const dispatch = useDispatch();
+  const goToPrevStep = ()=>{
+    dispatch(changeStep(1))
+  }
   return (
     <div className="div">
       <Formik
@@ -20,8 +24,12 @@ export const Step2 = () => {
         <Form className="form">
           <label>Age</label>
           <Field className="input" name="age" />
-          {/* <Field className="input" /> */}
-          <Buttons nextType="submit" />
+
+          <div className="buttons">
+          <PrevButton onPrev={goToPrevStep}/>
+          <NextButton nextType="submit"/>
+          </div>
+          
         </Form>
       </Formik>
     </div>
