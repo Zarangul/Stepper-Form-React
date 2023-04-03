@@ -1,6 +1,7 @@
 import React from 'react';
 import { Field, Form, Formik } from "formik";
 import { useDispatch} from 'react-redux';
+import cn from 'classnames';
 
 import { step3Val } from "../../../validation";
 import { PrevButton } from "../../Buttons/PrevButton";
@@ -23,15 +24,20 @@ export const Step3 = () => {
         dispatch(changeStep(4));
       }}
       >
-        <Form className='form'>
+        {
+          ({errors,touched})=>(
+            <Form className='form'>
           <label>Bank account</label>
-          <Field className='input' name='account' placeholder='type your bank account'/>
+          {errors.account && touched.account ? <div style={{color:'#de6f3b'}}>{errors.account}</div> : null}
+          <Field className={`input ${cn({error: errors.account && touched.account})}`} name='account' placeholder='type your bank account'/>
 
           <div className="buttons">
           <PrevButton onPrev={goToPrevStep}/>
           <NextButton nextType="submit" nextTitle='Submit'/>
           </div>
         </Form>
+          )
+        }
       </Formik>
     </div>
   )

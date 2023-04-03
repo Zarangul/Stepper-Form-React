@@ -9,7 +9,7 @@ export default function SubmitData() {
       <Formik>
         <Form className="form submit-data">
           <h1>Your Form Data</h1>
-          <label>Name: {data.name}</label>
+          <label>Name: {data.name} {data.surname}</label>
           <label>Age: {data.age}</label>
           <label>Bank account: {data.account}</label>
         </Form>

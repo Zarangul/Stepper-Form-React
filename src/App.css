@@ -79,6 +79,7 @@ label {
   font-size: 20px;
   color: #ececec;
   font-weight: bold;
+  margin-top: 20px;
 }
 .submit-data h1 {
   margin: 20px;
@@ -86,4 +87,7 @@ label {
 }
 .submit-data label {
   margin: 10px;
+}
+.error {
+  border: 1px solid red;
 }

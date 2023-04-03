@@ -1,6 +1,7 @@
 import React from "react";
 import { Field, Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
+import cn from 'classnames';
 
 import { step2Val } from "../../../validation";
 import { changeStep } from "../../../redux/stepSlice";
@@ -23,9 +24,12 @@ export const Step2 = () => {
           dispatch(changeStep(3));
         }}
       >
-        <Form className="form">
+        {
+          ({errors,touched})=>(
+            <Form className="form">
           <label>Age</label>
-          <Field className="input" name="age"  placeholder='type your age'/>
+          {errors.age && touched.age ? <div style={{color:'#de6f3b'}}>{errors.age}</div> : null}
+          <Field className={`input ${cn({error: errors.age && touched.age})}`} name="age"  placeholder='type your age'/>
 
           <div className="buttons">
           <PrevButton onPrev={goToPrevStep}/>
@@ -33,6 +37,8 @@ export const Step2 = () => {
           </div>
           
         </Form>
+          )
+        }
       </Formik>
     </div>
   );
