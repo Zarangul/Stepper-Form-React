@@ -1,11 +1,13 @@
-import {Stepper} from './components/Stepper'
-import './App.css';
+import "./App.css";
+import { Stepper } from "./components/Stepper";
+import { Control } from "./components/Control";
 
 function App() {
   return (
     <div className="App">
-      
-      <Stepper>Hello</Stepper>
+      <Stepper>
+        <Control />
+      </Stepper>
     </div>
   );
 }
